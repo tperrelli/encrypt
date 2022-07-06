@@ -1,9 +1,10 @@
 <?php
 
-namespace Dotenv\Encrypt\Providers;
+namespace Tperrelli\Encrypt\Providers;
 
-use Dotenv\Encrypt\Encrypt;
+use Tperrelli\Encrypt\Encrypt;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Contracts\Config\Repository as Config;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -33,8 +34,8 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->singleton('encrypt', function($app) {
 
-            $key    = config('dencrypt.key');
-            $cipher = config('dencrypt.cipher');
+            $key    = Config::get('decrypt.key');
+            $cipher = Config::get('decrypt.cipher');
 
             return new Encrypt($key, $cipher);
         });
@@ -57,7 +58,7 @@ class AppServiceProvider extends ServiceProvider
     public function publishConfig()
     {   
         $this->publishes([
-            __DIR__ . '/../../config/dencrypt.php' => config_path('dencrypt.php'),
+            __DIR__ . '/../../config/decrypt.php' => config_path('decrypt.php'),
        ]);
     }
 }
