@@ -1,12 +1,13 @@
 {
-    "name": "dotenv/encrypt",
+    "name": "tperrelli/encrypt",
     "description": "A simple package to encrypt data",
     "type": "package",
     "license": "MIT",
     "minimum-stability": "stable",
     "require": {
         "php": "^7.2",
-        "illuminate/support": "~5.5.0|~5.6"
+        "illuminate/support": "~5.5.0|~5.6",
+        "illuminate/contracts": "~5.5.0|~5.6"
     },
     "authors": [
         {
@@ -16,18 +17,18 @@
     ],
     "autoload": {
         "psr-4": {
-            "Dotenv\\Encrypt\\": "src/"
+            "Tperrelli\\Encrypt\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Dotenv\\Encrypt\\Test\\": "tests/"
+            "Tperrelli\\Encrypt\\Test\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Dotenv\\Encrypt\\Providers\\AppServiceProvider"
+                "Tperrelli\\Encrypt\\Providers\\AppServiceProvider"
             ]
         }
     }
