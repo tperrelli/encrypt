@@ -1,6 +1,6 @@
 <?php
 
-namespace Dotenv\Encrypt\Facades;
+namespace Tperrelli\Encrypt\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
