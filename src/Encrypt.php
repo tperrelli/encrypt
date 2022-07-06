@@ -1,20 +1,35 @@
 <?php
 
-namespace Dotenv\Encrypt;
+namespace Tperrelli\Encrypt;
 
 use Exception;
+use EncryptContract;
 
-class Encrypt
+class Encrypt implements EncryptContract
 {
+    /** @var string */
     protected $key;
+
+    /** @var string */
     protected $cipher;
 
+    /**
+     * Class constructor
+     * 
+     * @param string $key
+     * @param string $cipher
+     */
     public function __construct(string $key, string $cipher)
     {
         $this->key    = $key;
         $this->cipher = $cipher;
     }
 
+    /**
+     * Encrypts a public message
+     * 
+     * @param string $message
+     */
     public function encrypt(string $message): array
     {
         if (!in_array($this->cipher, openssl_get_cipher_methods())) 
@@ -32,6 +47,12 @@ class Encrypt
         ];
     }
 
+    /**
+     * Decrypts an encrypted message
+     * 
+     * @param string $message
+     * @param string $tag
+     */
     public function decrypt(string $message, string $tag): string
     {
         $decoded = base64_decode($message);
