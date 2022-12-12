@@ -22,7 +22,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tperrelli\\Encrypt\\Test\\": "tests/"
+            "Tperrelli\\Encrypt\\Tests\\": "tests/"
         }
     },
     "extra": {
@@ -31,5 +31,8 @@
                 "Tperrelli\\Encrypt\\Providers\\AppServiceProvider"
             ]
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5.5.0|~5.6"
     }
 }
