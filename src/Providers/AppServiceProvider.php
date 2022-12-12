@@ -4,7 +4,7 @@ namespace Tperrelli\Encrypt\Providers;
 
 use Tperrelli\Encrypt\Encrypt;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Contracts\Config\Repository as Config;
+use Illuminate\Support\Facades\Config;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -58,7 +58,7 @@ class AppServiceProvider extends ServiceProvider
     public function publishConfig()
     {   
         $this->publishes([
-            __DIR__ . '/../../config/decrypt.php' => config_path('decrypt.php'),
+            __DIR__ . '/../config/decrypt.php' => Config::get('decrypt.php'),
        ]);
     }
 }
