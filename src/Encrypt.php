@@ -2,8 +2,8 @@
 
 namespace Tperrelli\Encrypt;
 
-use Exception;
-use EncryptContract;
+use Tperrelli\Encrypt\Contracts\EncryptContract;
+use Tperrelli\Encrypt\Exceptions\InvalidCipherException;
 
 class Encrypt implements EncryptContract
 {
@@ -33,7 +33,7 @@ class Encrypt implements EncryptContract
     public function encrypt(string $message): array
     {
         if (!in_array($this->cipher, openssl_get_cipher_methods())) 
-            throw new Exception("Invalid Cipher");
+            throw new InvalidCipherException("Invalid Cipher");
 
         $ivlen = openssl_cipher_iv_length($this->cipher);
         $iv = openssl_random_pseudo_bytes($ivlen);
